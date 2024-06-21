@@ -18,13 +18,13 @@ pipeline {
                   steps{
                      
                        
-                       sshagent(['SSH-Agent']) {
+                       sshagent(['ssh-agent']) {
                        
                        sh """
-                            scp -o StrictHostKeyChecking=no  target/boxfuse-sample-java-war-hello.war ubuntu@18.206.127.35:/home/ubuntu/apache-tomcat-9.0.90/webapps
+                            scp -o StrictHostKeyChecking=no  target/boxfuse-sample-java-war-hello.war ubuntu@54.236.240.74:/home/ubuntu/apache-tomcat-9.0.90/webapps/
                             
-                            ssh ubuntu@18.206.127.35 /home/ubuntu/apache-tomcat-9.0.90/bin/shutdown.sh
-                            ssh ubuntu@18.206.127.35 /home/ubuntu/apache-tomcat-9.0.90/bin/startup.sh
+                            ssh ubuntu@54.236.240.74 /home/ubuntu/apache-tomcat-9.0.90/bin/shutdown.sh
+                            ssh ubuntu@54.236.240.74 /home/ubuntu/apache-tomcat-9.0.90/bin/startup.sh
                             
                           """
     
