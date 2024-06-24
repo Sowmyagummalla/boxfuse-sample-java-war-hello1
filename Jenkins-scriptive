@@ -1,7 +1,7 @@
 node {
     def remote = [:]
     remote.name = 'remote-host'
-    remote.host = '3.216.91.196'
+    remote.host = '44.211.85.230'
     remote.user = 'ubuntu'
     remote.allowAnyHosts = true
 
@@ -16,10 +16,10 @@ node {
 
     stage('Deploy') {
         sshagent(['ssH-Agent']) {
-            sh 'scp -o StrictHostKeyChecking=no target/boxfuse-sample-java-war-hello.war ubuntu@3.216.91.196:/home/ubuntu/apache-tomcat-9.0.90/webapps/'
+            sh 'scp -o StrictHostKeyChecking=no target/boxfuse-sample-java-war-hello.war ubuntu@44.211.85.230:/home/ubuntu/apache-tomcat-9.0.90/webapps/'
             
-            sh 'ssh ubuntu@3.216.91.196 /home/ubuntu/apache-tomcat-9.0.90/bin/shutdown.sh'
-            sh 'ssh ubuntu@3.216.91.196 /home/ubuntu/apache-tomcat-9.0.90/bin/startup.sh'
+            sh 'ssh ubuntu@44.211.85.230 /home/ubuntu/apache-tomcat-9.0.90/bin/shutdown.sh'
+            sh 'ssh ubuntu@44.211.85.230 /home/ubuntu/apache-tomcat-9.0.90/bin/startup.sh'
         }
     }
 }
